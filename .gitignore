@@ -23,3 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 variables.env
+variables.env.now
+
+*.log
+.idea
+haters/
