@@ -10,10 +10,14 @@ router.get("/", (req, res) => {
 
   // Query params
   // res.send(req.query.name);
-  res.json(req.query);
+  // res.json(req.query);
 
   // Post params
   // res.send(req.body);
+
+  // Render template
+  // res.render("hello", { name: "Fede", dog: req.query.dog });
+  res.render("content");
 });
 
 router.get("/reverse/:name/:last", (req, res) => {

@@ -1,0 +1,24 @@
+.wrapper.second-class
+    p.hello Hello!
+    span#yo Yo
+    img.dog(src="dog.jpg" alt="Dog")
+
+h2
+    | Hello
+    br
+    em How are you?
+
+div
+    h1  I'm #{name}
+    p My dog name is #{dog}
+    img(src="my-dog.jpg" alt=`${dog}`)
+
+    -const upDog = dog.toUpperCase()
+    p #{upDog}
+    p #{name.toUpperCase()}
+
+ul.dogs
+    //- Create following lis: li.dog$$*3
+    li.dog01
+    li.dog02
+    li.dog03
