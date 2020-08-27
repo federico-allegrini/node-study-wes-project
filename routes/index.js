@@ -17,7 +17,8 @@ router.get("/", (req, res) => {
 
   // Render template
   // res.render("hello", { name: "Fede", dog: req.query.dog });
-  res.render("content");
+  // Title passed here, will be used in Layout.pug
+  res.render("content", { title: "Content" });
 });
 
 router.get("/reverse/:name/:last", (req, res) => {
