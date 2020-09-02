@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const promisify = require("es6-promisify");
-const flash = require("connect-flash");
+const flash = require("connect-flash"); // Import flash messages
 const expressValidator = require("express-validator");
 const routes = require("./routes/index");
 const helpers = require("./helpers");
@@ -35,6 +35,7 @@ app.use(cookieParser());
 
 // Sessions allow us to store data on visitors from request to request
 // This keeps users logged in and allows us to send flash messages
+// Only possible with use of session, keep data between requests, otherwise stateless
 app.use(
   session({
     secret: process.env.SECRET,
@@ -56,7 +57,7 @@ app.use(flash());
 // Template Helpers
 app.use((req, res, next) => {
   res.locals.h = helpers;
-  res.locals.flashes = req.flash();
+  res.locals.flashes = req.flash(); // Middleware for pass flashes to our locals variable
   res.locals.user = req.user || null;
   res.locals.currentPath = req.path;
   next();

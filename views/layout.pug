@@ -39,6 +39,8 @@ html
               li.nav__item: a.nav__link(href="/login", class=(currentPath.startsWith('/login') ? 'nav__link--active' : '')) Log In
 
     block messages
+      //- A type of console log in template, see "dump" function in helpers.js
+      //- pre= h.dump(flashes)
       if locals.flashes
         .inner
           .flash-messages
@@ -46,6 +48,7 @@ html
             each category in categories
               each message in flashes[category]
                 .flash(class=`flash--${category}`)
+                  //- != is used for inject HTML code
                   p.flash__text!= message
                   button.flash__remove(onClick="this.parentElement.remove()") &times;
     .content
