@@ -6,6 +6,9 @@ html
     title= `${title} | ${h.siteName}`
     link(rel='stylesheet', href='/dist/style.css')
     link(rel="shortcut icon" type="image/png" href="/images/icons/doughnut.png")
+    //- API Here Maps
+    script(src=`https://js.api.here.com/v3/3.1/mapsjs-core.js`)
+    script(src=`https://js.api.here.com/v3/3.1/mapsjs-service.js`)
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
     block header
@@ -59,5 +62,4 @@ html
         p (C) Fede Alle
 
     block scripts
-      script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places`)
       script(src="/dist/App.bundle.js")
