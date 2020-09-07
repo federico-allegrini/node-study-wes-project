@@ -44,7 +44,10 @@ function createSuggestionsDropdown(input, callback) {
         const suggestion = document.createElement("li");
         suggestion.class = "suggestion";
         suggestion.innerText = label;
-        suggestion.addEventListener("click", () => callback(lat, lng));
+        suggestion.addEventListener("click", () => {
+          input.value = label;
+          callback(lat, lng);
+        });
         suggestions.appendChild(suggestion);
       }
     },
