@@ -39,12 +39,18 @@ const storeSchema = new mongoose.Schema({
 
 // Every single time we save a Store, will be executed this code
 // Generate slug from name using the slug package
-storeSchema.pre("save", function (next) {
+storeSchema.pre("save", async function (next) {
   if (!this.isModified("name")) {
     next(); // Skip it
     return; // Stop this function from running
   }
   this.slug = slug(this.name);
+  // Find other stores that have an equal slug
+  const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)$`, "i");
+  const storesWithSlug = await this.constructor.find({ slug: slugRegEx });
+  if (storesWithSlug.length) {
+    this.slug = `${this.slug}-${storesWithSlug.length + 1}`;
+  }
   next();
   // TODO make more resilient so slug are unique
 });
