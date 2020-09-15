@@ -59,7 +59,7 @@ app.use(flash());
 app.use((req, res, next) => {
   res.locals.h = helpers;
   res.locals.flashes = req.flash(); // Middleware for pass flashes to our locals variable
-  res.locals.user = req.user || null;
+  res.locals.user = req.user || null; // Pass user to the locals of res obj, if exists
   res.locals.currentPath = req.path;
   next();
 });
