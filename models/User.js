@@ -20,6 +20,8 @@ const userSchema = new Schema({
     trim: true,
     required: "Please supply a name",
   },
+  resetPasswordToken: String,
+  resetPasswordExpires: Date,
 });
 
 // Create a virtual "gravatar" file in the model that is not stored in database, but is based on the return of the function "get"
