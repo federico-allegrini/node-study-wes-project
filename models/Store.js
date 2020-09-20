@@ -42,6 +42,12 @@ const storeSchema = new mongoose.Schema({
   },
 });
 
+// Define our indexes
+storeSchema.index({
+  name: "text",
+  description: "text",
+});
+
 // Every single time we save a Store, will be executed this code
 // Generate slug from name using the slug package
 storeSchema.pre("save", async function (next) {
