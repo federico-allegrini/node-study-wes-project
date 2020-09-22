@@ -48,6 +48,8 @@ storeSchema.index({
   description: "text",
 });
 
+storeSchema.index({ location: "2dsphere" });
+
 // Every single time we save a Store, will be executed this code
 // Generate slug from name using the slug package
 storeSchema.pre("save", async function (next) {
