@@ -59,6 +59,7 @@ router.post(
   authController.confirmedPassword,
   catchErrors(authController.update)
 );
+router.get("/map", storeController.mapPage);
 
 /*
   API

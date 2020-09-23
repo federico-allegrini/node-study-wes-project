@@ -8,4 +8,11 @@ function autocomplete(input, latInput, lngInput) {
   });
 }
 
+exports.autocompleteCallback = function (input, callback) {
+  if (!input) return;
+  setInputDropdown(input, (lat, lng) => {
+    callback(lat, lng);
+  });
+};
+
 export default autocomplete;

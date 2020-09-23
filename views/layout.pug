@@ -6,9 +6,13 @@ html
     title= `${title} | ${h.siteName}`
     link(rel='stylesheet', href='/dist/style.css')
     link(rel="shortcut icon" type="image/png" href="/images/icons/doughnut.png")
+    //- CSS Here Maps
+    link(rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css")
     //- API Here Maps
     script(src=`https://js.api.here.com/v3/3.1/mapsjs-core.js`)
     script(src=`https://js.api.here.com/v3/3.1/mapsjs-service.js`)
+    script(src=`https://js.api.here.com/v3/3.1/mapsjs-ui.js`)
+    script(src=`https://js.api.here.com/v3/3.1/mapsjs-mapevents.js`)
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
     block header
