@@ -22,6 +22,7 @@ const userSchema = new Schema({
   },
   resetPasswordToken: String,
   resetPasswordExpires: Date,
+  hearts: [{ type: mongoose.Schema.ObjectId, ref: "Store" }],
 });
 
 // Create a virtual "gravatar" file in the model that is not stored in database, but is based on the return of the function "get"
